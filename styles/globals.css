@@ -14,3 +14,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+body, #__next {
+  background-color: blueviolet;
+  min-height: 100vh;
+}

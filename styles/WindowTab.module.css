@@ -1,0 +1,20 @@
+.section {
+    padding-bottom: 0.2em;
+    border-bottom: solid 2px rgba(255,255,255,0.3);
+}
+
+.tabs {
+    height: 2em;
+}
+
+.close {
+    fill: rgb(230,106,103);
+}
+
+.minimize {
+    fill: rgb(233,214,137);
+}
+
+.zoom {
+    fill: rgb(184,227,139);
+}

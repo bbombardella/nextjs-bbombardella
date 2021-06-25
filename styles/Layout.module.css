@@ -1,0 +1,18 @@
+.container, .row, .column, .main {
+    min-height: 90vh;
+}
+
+.row {
+    padding: 0 1em;
+}
+
+.column {
+    background-image: linear-gradient(
+        to left bottom,
+        rgba(255,255,255,0.70),
+        rgba(255,255,255,0.3)
+    );
+    border-radius: 2rem;
+    margin-top: 1.75em;
+    padding: 1em 2em;
+}
