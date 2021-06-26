@@ -1,3 +1,5 @@
+@import '_colors.scss';
+
 .section {
     padding-bottom: 0.2em;
     border-bottom: solid 2px rgba(255,255,255,0.3);
@@ -8,13 +10,13 @@
 }
 
 .close {
-    fill: rgb(230,106,103);
+    fill: $close;
 }
 
 .minimize {
-    fill: rgb(233,214,137);
+    fill: $minimize;
 }
 
 .zoom {
-    fill: rgb(184,227,139);
+    fill: $zoom;
 }

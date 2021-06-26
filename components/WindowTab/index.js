@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import styles from '../../styles/WindowTab.module.css'
+import styles from '../../styles/WindowTab.module.scss'
 
 export default function WindowTab() {
     return (

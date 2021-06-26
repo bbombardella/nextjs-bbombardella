@@ -3,9 +3,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import WindowTab from '../WindowTab'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import styles from '../../styles/Layout.module.css'
+import styles from '../../styles/Layout.module.scss'
+import Header from '../Header'
 
-export default function Layout() {
+export default function Layout({ children }) {
     return (
         <Container className={styles.container}>
             <Row className={styles.row}>
@@ -13,12 +14,12 @@ export default function Layout() {
                     <WindowTab />
                     <Row>
                         <Col>
-                            <header>cc header</header>
+                            <Header />
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <main>cc main</main>
+                            {children}
                         </Col>
                     </Row>
                 </Col>
