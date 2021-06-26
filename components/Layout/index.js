@@ -12,14 +12,12 @@ export default function Layout({ children }) {
             <Row className={styles.row}>
                 <Col xs={12} className={styles.column}>
                     <WindowTab />
+                    <Header />
                     <Row>
                         <Col>
-                            <Header />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            {children}
+                            <main>
+                                {children}
+                            </main>
                         </Col>
                     </Row>
                 </Col>
