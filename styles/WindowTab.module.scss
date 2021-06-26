@@ -1,8 +1,13 @@
 @import '_colors.scss';
 
-.section {
-    padding-bottom: 0.2em;
+.section {    
+    margin: auto;
+    padding: 0.5em 1em 0em 1em;
     border-bottom: solid 2px rgba(255,255,255,0.3);
+}
+
+.column {
+    padding: 0;
 }
 
 .tabs {

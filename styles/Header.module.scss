@@ -1,6 +1,10 @@
+@import '_colors.scss';
+
 .header-container {
-    margin: 1em 0;
-    background-color: blue;
+    margin: 0;
+    background-color: $primary-color;
+    border-left: solid 2px rgba(255,255,255,0.1);
+    border-right: solid 2px rgba(255,255,255,0.1);
 }
 
 .header {

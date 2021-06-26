@@ -8,6 +8,10 @@
     padding: 0 1em;
 }
 
+.main {
+    padding: 1em 2em;
+}
+
 .column {
     background-image: linear-gradient(
         to left bottom,
@@ -16,5 +20,5 @@
     );
     border-radius: 2rem;
     margin-top: 1.75em;
-    padding: 1em 2em;
+    padding: 0;
 }

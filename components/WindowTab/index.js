@@ -6,7 +6,7 @@ import styles from '../../styles/WindowTab.module.scss'
 export default function WindowTab() {
     return (
         <Row className={styles.section}>
-            <Col xs={12}>
+            <Col xs={12} className={styles.column}>
                 <svg className={styles.tabs}>
                     <circle cx="15" cy="15" r="6" className={styles.close} />
                     <circle cx="35" cy="15" r="6" className={styles.minimize} />

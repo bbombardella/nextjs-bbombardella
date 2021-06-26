@@ -15,7 +15,7 @@ export default function Layout({ children }) {
                     <Header />
                     <Row>
                         <Col>
-                            <main>
+                            <main className={styles.main}>
                                 {children}
                             </main>
                         </Col>
