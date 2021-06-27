@@ -1,8 +1,11 @@
-import Layout from "../components/Layout"
+import Script from 'next/Script'
+import HomeParticles from '../components/HomeParticles'
 
 export default function home() {
-  return(
-    <p>cc</p>
+  return (
+    <>
+      <HomeParticles />
+    </>
   )
 }
 
