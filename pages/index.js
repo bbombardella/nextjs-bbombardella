@@ -1,11 +1,11 @@
-import Script from 'next/Script'
+import Layout from '../components/Layout'
 import HomeParticles from '../components/HomeParticles'
 
 export default function home() {
   return (
-    <>
+    <Layout>
       <HomeParticles />
-    </>
+    </Layout>
   )
 }
 
