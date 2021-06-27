@@ -1,0 +1,27 @@
+@import '_colors.scss';
+
+.menu {
+    width: 20%;
+    margin-left: auto;
+    width: 4em;
+}
+
+.menu-img {
+    width: 3em;
+}
+
+.full {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    background-color: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
