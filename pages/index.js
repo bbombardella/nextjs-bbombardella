@@ -3,7 +3,7 @@ import HomeParticles from '../components/HomeParticles'
 
 export default function home() {
   return (
-    <Layout>
+    <Layout title="Accueil - Bastien">
       <HomeParticles />
     </Layout>
   )
