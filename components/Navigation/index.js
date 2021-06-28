@@ -4,7 +4,7 @@ import styles from '../../styles/Navigation.module.scss'
 
 export default function Navigation() {
     const [isOpen, setOpen] = useState(false)
-    if (isOpen) {
+    /*if (isOpen) {
         return (
             <div className={styles.full}>
                 <p onClick={() => setOpen(!isOpen)}>cc</p>
@@ -25,5 +25,10 @@ export default function Navigation() {
                 </svg>
             </div>
         )
-    }
+    }*/
+    return(
+        <div>
+            
+        </div>
+    )
 }
