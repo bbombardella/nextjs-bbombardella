@@ -1,9 +1,5 @@
 @import '_colors.scss';
 
-.container {
-    overflow: hidden;
-}
-
 .container, .row, .column {
     min-height: calc(100vh - 3em);
 }
@@ -25,4 +21,5 @@
     border-radius: 2rem;
     margin-top: 1.75em;
     padding: 0;
+    overflow: hidden;
 }
