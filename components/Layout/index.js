@@ -22,9 +22,7 @@ export default function Layout({ title = "Bastien", children }) {
                         <Header />
                         <Row className={styles['row-main']}>
                             <Col className={styles['col-main']}>
-                                <main className={styles.main}>
-                                    {children}
-                                </main>
+                                {children}
                             </Col>
                         </Row>
 
