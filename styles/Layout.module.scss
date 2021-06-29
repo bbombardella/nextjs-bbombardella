@@ -1,11 +1,22 @@
-@import '_colors.scss';
+@import "_colors.scss";
 
-.container, .row, .column {
-    min-height: calc(100vh - 3em);
+.container,
+.row,
+.column {
+  min-height: calc(100vh - 3em);
 }
 
 .row {
-    padding: 0 1em;
+  padding: 0 1em;
+}
+
+.row-main {
+  height: calc(100% - 153px);
+}
+
+.col-main,
+.main {
+  height: 100%;
 }
 
 /*.main {
@@ -13,13 +24,13 @@
 }*/
 
 .column {
-    background-image: linear-gradient(
-        to left bottom,
-        rgba(255,255,255,0.70),
-        rgba(255,255,255,0.3)
-    );
-    border-radius: 2rem;
-    margin-top: 1.75em;
-    padding: 0;
-    overflow: hidden;
+  background-image: linear-gradient(
+    to left bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  border-radius: 2rem;
+  margin-top: 1.75em;
+  padding: 0;
+  overflow: hidden;
 }

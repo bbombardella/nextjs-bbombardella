@@ -20,7 +20,14 @@ export default function Layout({ title = "Bastien", children }) {
                     <Col xs={12} className={styles.column}>
                         <WindowTab />
                         <Header />
-                        {children}
+                        <Row className={styles['row-main']}>
+                            <Col className={styles['col-main']}>
+                                <main className={styles.main}>
+                                    {children}
+                                </main>
+                            </Col>
+                        </Row>
+
                     </Col>
                 </Row>
             </Container>

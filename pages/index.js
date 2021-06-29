@@ -7,13 +7,7 @@ import styles from '../styles/Home.module.scss'
 export default function home() {
   return (
     <Layout title="Accueil - Bastien">
-      <Row className={styles.row}>
-        <Col className={styles.col}>
-          <main className={styles.main}>
-            <HomeParticles />
-          </main>
-        </Col>
-      </Row>
+      <HomeParticles />
     </Layout>
   )
 }
