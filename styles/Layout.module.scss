@@ -1,7 +1,11 @@
 @import '_colors.scss';
 
+.container {
+    overflow: hidden;
+}
+
 .container, .row, .column {
-    min-height: 90vh;
+    min-height: calc(100vh - 3em);
 }
 
 .row {
