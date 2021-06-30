@@ -3,7 +3,8 @@ module.exports = {
   images: {
     domains: [
       'strapi.bastienbc.fr',
-      'i.imgur.com'
+      'i.imgur.com',
+      'bastienbc.fr'
     ]
   }
 }
