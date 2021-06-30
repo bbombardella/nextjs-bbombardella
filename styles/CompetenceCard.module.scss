@@ -1,21 +1,52 @@
-@import '_colors.scss';
+@import "_colors.scss";
 
 .card {
-  display: flex;
-  background-color: $header;
+  background-color: white;
   color: white;
   margin: 0.5em;
-  width: 20%;
   border-radius: 10px;
-  padding: 10px;
   word-wrap: break-word;
+  transition: all ease-in-out 200ms;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 
 .image {
-  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem;
+  position: relative;
+  img {
+    object-fit: contain;
+  }
+}
+
+.image-div {
+  width: 5em;
+  height: 3em;
+}
+
+.arc {
+  width: 40px;
+  height: 40px;
+  position: absolute; 
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  path {
+    fill: $card;
+  }
 }
 
 .text {
-  width: 70%;
+  background-color: $card;
   text-align: center;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 20px 0 0 0;
 }

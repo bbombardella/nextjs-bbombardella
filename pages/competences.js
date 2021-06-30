@@ -11,23 +11,27 @@ export default function Competences({ competences, categories }) {
     const [comp, setComp] = useState(competences);
 
     function handleFilter(filter) {
-        if(filter==="Tous") {
+        if (filter === "Tous") {
             setComp(competences)
         } else {
-            setComp(competences.filter(competence => competence.catcompetences.map(cat => cat.name) == filter))
-        }        
+            setComp(filter.competences)
+        }
     }
 
-    console.log(comp)
     return (
         <Layout title="Compétences - Bastien">
             <main>
                 <Row>
                     <Col xs={12}>
+                        <h1 className={styles.title}>Mes compétences</h1>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col xs={12}>
                         <ul className={styles.categories}>
                             <li onClick={() => { handleFilter("Tous") }}>Tous</li>
                             {categories.map((item, index) => (
-                                <li key={index} onClick={() => { handleFilter(item.name) }}>{item.name}</li>
+                                <li key={index} onClick={() => { handleFilter(item) }}>{item.name}</li>
                             ))}
                         </ul>
                     </Col>
