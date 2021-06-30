@@ -1,27 +1,43 @@
-@import '_colors.scss';
+@import "_colors.scss";
 
 .menu {
-    width: 20%;
-    margin-left: auto;
-    width: 4em;
+  width: 20%;
+  margin-left: auto;
+  width: 4em;
 }
 
 .menu-img {
-    width: 3em;
+  width: 3em;
 }
 
 .full {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 999;
-    background-color: $primary-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  ul {
+    list-style: none;
+    font-size: 200%;
+  }
+  a {
+    color: white;
+  }
+}
+
+.close {
+    width: 2em;
+    height: 2em;
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    cursor: pointer;
 }
