@@ -1,4 +1,5 @@
 import Navigation from '../Navigation'
+import Link from 'next/link'
 import Image from 'next/image'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -13,7 +14,9 @@ export default function Header() {
                 <header className={styles.header}>
                     <div className={styles.logo}>
                         <div className={styles['logo-img']}>
-                            <Image src={logo} alt="Logo" layout="responsive" />
+                            <Link href="/" passHref>
+                                <Image src={logo} alt="Logo" layout="responsive" priority />
+                            </Link>
                         </div>
                     </div>
                     <h1 className={styles.title}>BASTIEN BOMBARDELLA</h1>
