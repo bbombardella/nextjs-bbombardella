@@ -3,19 +3,27 @@ import Layout from '../components/Layout'
 import CompetenceCard from '../components/CompetenceCard'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import styles from '../styles/Competences.module.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Competences({ competences, categories }) {
 
     const [comp, setComp] = useState(competences);
+    const [isLoading, setisLoading] = useState(false)
 
     function handleFilter(filter) {
+        setisLoading(true)
+
         if (filter === "Tous") {
             setComp(competences)
         } else {
             setComp(filter.competences)
         }
+
+        setTimeout(() => {
+            setisLoading(false)
+        }, 500)
     }
 
     return (
@@ -38,11 +46,15 @@ export default function Competences({ competences, categories }) {
                 </Row>
                 <Row>
                     <Col>
-                        <ul className={styles.competences}>
-                            {comp.map((competence, index) => (
-                                <CompetenceCard key={index} data={competence} />
-                            ))}
-                        </ul>
+                        <AnimatePresence>
+                            {!isLoading &&
+                                <motion.ul exit={{ opacity: 0 }} className={styles.competences}>
+                                    {comp.map((competence, index) => (
+                                        <CompetenceCard key={index} data={competence} />
+                                    ))}
+                                </motion.ul>
+                            }
+                        </AnimatePresence>
                     </Col>
                 </Row>
             </main>
