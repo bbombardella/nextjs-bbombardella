@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Head from 'next/head'
 import Layout from '../components/Layout'
 import CompetenceCard from '../components/CompetenceCard'
 import Row from 'react-bootstrap/Row'
@@ -27,38 +28,54 @@ export default function Competences({ competences, categories }) {
     }
 
     return (
-        <Layout title="Compétences - Bastien">
-            <main>
-                <Row>
-                    <Col xs={12}>
-                        <h1 className={styles.title}>Mes compétences</h1>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={12}>
-                        <ul className={styles.categories}>
-                            <li onClick={() => { handleFilter("Tous") }}>Tous</li>
-                            {categories.map((item, index) => (
-                                <li key={index} onClick={() => { handleFilter(item) }}>{item.name}</li>
-                            ))}
-                        </ul>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <AnimatePresence>
-                            {!isLoading &&
-                                <motion.ul exit={{ opacity: 0 }} className={styles.competences}>
-                                    {comp.map((competence, index) => (
-                                        <CompetenceCard key={index} data={competence} />
-                                    ))}
-                                </motion.ul>
-                            }
-                        </AnimatePresence>
-                    </Col>
-                </Row>
-            </main>
-        </Layout>
+        <>
+            <Head>
+                <meta name="title" content="Compétences — Bastien Bombardella" />
+                <meta name="description" content="Retrouvez toutes mes compétences dans cette page !" />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://www.bastienbc.fr/competences" />
+                <meta property="og:title" content="Compétences — Bastien Bombardella" />
+                <meta property="og:description" content="Retrouvez toutes mes compétences dans cette page !" />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.bastienbc.fr/competences" />
+                <meta property="twitter:title" content="Compétences — Bastien Bombardella" />
+                <meta property="twitter:description" content="Retrouvez toutes mes compétences dans cette page !" />
+            </Head>
+            <Layout title="Compétences — Bastien Bombardella">
+                <main>
+                    <Row>
+                        <Col xs={12}>
+                            <h1 className={styles.title}>Mes compétences</h1>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={12}>
+                            <ul className={styles.categories}>
+                                <li onClick={() => { handleFilter("Tous") }}>Tous</li>
+                                {categories.map((item, index) => (
+                                    <li key={index} onClick={() => { handleFilter(item) }}>{item.name}</li>
+                                ))}
+                            </ul>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <AnimatePresence>
+                                {!isLoading &&
+                                    <motion.ul exit={{ opacity: 0 }} className={styles.competences}>
+                                        {comp.map((competence, index) => (
+                                            <CompetenceCard key={index} data={competence} />
+                                        ))}
+                                    </motion.ul>
+                                }
+                            </AnimatePresence>
+                        </Col>
+                    </Row>
+                </main>
+            </Layout>
+        </>
     )
 }
 
