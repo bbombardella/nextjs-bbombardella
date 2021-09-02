@@ -80,9 +80,9 @@ export default function Competences({ competences, categories }) {
 }
 
 export async function getStaticProps() {
-    let res = await fetch('https://strapi.bastienbc.fr/competences')
+    let res = await fetch(process.env.api+'competences')
     const competences = await res.json()
-    res = await fetch('https://strapi.bastienbc.fr/catcompetences')
+    res = await fetch(process.env.api+'catcompetences')
     const categories = await res.json()
 
     return {
