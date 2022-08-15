@@ -9,7 +9,6 @@ export default function HomeParticles() {
     useEffect(() => {
         const pathseg = require("pathseg")
         tsParticles.load("tsparticles", settings)
-        console.log(strings)
     })
 
     return (
