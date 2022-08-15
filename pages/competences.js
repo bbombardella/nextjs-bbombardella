@@ -1,94 +1,109 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import Head from 'next/head'
 import Layout from '../components/Layout'
 import CompetenceCard from '../components/CompetenceCard'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import {motion, AnimateSharedLayout, AnimatePresence} from 'framer-motion'
 import styles from '../styles/Competences.module.scss'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export default function Competences({ competences, categories }) {
+export default function Competences({competences, categories}) {
 
-    const [comp, setComp] = useState(competences);
-    const [isLoading, setisLoading] = useState(false)
+  const [comp, setComp] = useState(competences);
+  const [isLoading, setisLoading] = useState(false)
 
-    function handleFilter(filter) {
-        setisLoading(true)
+  function handleFilter(filter) {
+    setisLoading(true)
 
-        if (filter === "Tous") {
-            setComp(competences)
-        } else {
-            setComp(filter.competences)
-        }
-
-        setTimeout(() => {
-            setisLoading(false)
-        }, 500)
+    if (filter === "Tous") {
+      setComp(competences)
+    } else {
+      setComp(filter.competences)
     }
 
-    return (
-        <>
-            <Head>
-                <meta name="title" content="Compétences — Bastien Bombardella" />
-                <meta name="description" content="Retrouvez toutes mes compétences dans cette page !" />
+    setTimeout(() => {
+      setisLoading(false)
+    }, 500)
+  }
 
-                <meta property="og:type" content="website" />
-                <meta property="og:url" content="https://www.bastienbc.fr/competences" />
-                <meta property="og:title" content="Compétences — Bastien Bombardella" />
-                <meta property="og:description" content="Retrouvez toutes mes compétences dans cette page !" />
+  return (
+    <>
+      <Head>
+        <meta name="title" content="Compétences — Bastien Bombardella"/>
+        <meta name="description" content="Retrouvez toutes mes compétences dans cette page !"/>
 
-                <meta property="twitter:card" content="summary_large_image" />
-                <meta property="twitter:url" content="https://www.bastienbc.fr/competences" />
-                <meta property="twitter:title" content="Compétences — Bastien Bombardella" />
-                <meta property="twitter:description" content="Retrouvez toutes mes compétences dans cette page !" />
-            </Head>
-            <Layout title="Compétences — Bastien Bombardella">
-                <main>
-                    <Row>
-                        <Col xs={12}>
-                            <h1 className={styles.title}>Mes compétences</h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <ul className={styles.categories}>
-                                <li onClick={() => { handleFilter("Tous") }}>Tous</li>
-                                {categories.map((item, index) => (
-                                    <li key={index} onClick={() => { handleFilter(item) }}>{item.name}</li>
-                                ))}
-                            </ul>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <AnimatePresence>
-                                {!isLoading &&
-                                    <motion.ul exit={{ opacity: 0 }} className={styles.competences}>
-                                        {comp.map((competence, index) => (
-                                            <CompetenceCard key={index} data={competence} />
-                                        ))}
-                                    </motion.ul>
-                                }
-                            </AnimatePresence>
-                        </Col>
-                    </Row>
-                </main>
-            </Layout>
-        </>
-    )
+        <meta property="og:type" content="website"/>
+        <meta property="og:url" content="https://www.bastienbc.fr/competences"/>
+        <meta property="og:title" content="Compétences — Bastien Bombardella"/>
+        <meta property="og:description" content="Retrouvez toutes mes compétences dans cette page !"/>
+
+        <meta property="twitter:card" content="summary_large_image"/>
+        <meta property="twitter:url" content="https://www.bastienbc.fr/competences"/>
+        <meta property="twitter:title" content="Compétences — Bastien Bombardella"/>
+        <meta property="twitter:description" content="Retrouvez toutes mes compétences dans cette page !"/>
+      </Head>
+      <Layout title="Compétences — Bastien Bombardella">
+        <main>
+          <Row>
+            <Col xs={12}>
+              <h1 className={styles.title}>Mes compétences</h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12}>
+              <ul className={styles.categories}>
+                <li onClick={() => {
+                  handleFilter("Tous")
+                }}>Tous
+                </li>
+                {categories.map((item, index) => (
+                  <li key={index} onClick={() => {
+                    handleFilter(item)
+                  }}>{item.name}</li>
+                ))}
+              </ul>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <AnimatePresence>
+                {!isLoading &&
+                  <motion.ul exit={{opacity: 0}} className={styles.competences}>
+                    {comp.map((competence, index) => (
+                      <CompetenceCard key={index} data={competence}/>
+                    ))}
+                  </motion.ul>
+                }
+              </AnimatePresence>
+            </Col>
+          </Row>
+        </main>
+      </Layout>
+    </>
+  )
 }
 
 export async function getStaticProps() {
-    let res = await fetch(process.env.api+'competences')
-    const competences = await res.json()
-    res = await fetch(process.env.api+'catcompetences')
-    const categories = await res.json()
+  let res = await fetch(`${process.env.api}competences`);
+  const competences = await res.json();
 
-    return {
-        props: {
-            competences,
-            categories
-        },
+  if (Array.isArray(competences) && competences?.length > 0) {
+    for (const competence of competences) {
+      if (competence?.icon?.url) {
+        const image = await fetch(`${process.env.api}${competence.icon.url}`);
+        competence.image = `data:${competence?.icon?.mime ?? 'image/jpeg'};base64,${btoa(String.fromCharCode(...new Uint8Array(await image.arrayBuffer())))}`;
+      }
     }
+  }
+
+  res = await fetch(`${process.env.api}catcompetences`);
+  const categories = await res.json();
+
+  return {
+    props: {
+      competences,
+      categories
+    },
+  }
 }
