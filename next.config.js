@@ -6,10 +6,11 @@ module.exports = {
   images: {
     unoptimized: true,
     loader: 'akamai',
-    path: '',
+    path: ' ',
     domains: [
       'strapi.bastienbc.fr',
       'bastienbc.fr'
     ]
-  }
+  },
+  trailingSlash: true
 }
